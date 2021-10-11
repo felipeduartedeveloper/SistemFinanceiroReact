@@ -13,6 +13,9 @@ const App = () => {
   const [list, setList] = useState(items);
   const [filteredList, setFilteredList] = useState<Item[]>([]);
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
+  const [income, setIncome] = useState(0);
+  const [expense, setExpense] = useState(0);
+
 
   useEffect(() => {
     setFilteredList( filterListByMonth(list, currentMonth ) );
@@ -31,6 +34,8 @@ const App = () => {
         <InfoArea 
         currentMonth={currentMonth}
         onMonthChange={handleMonthChange}
+        income={income}
+        expense={expense}
         />
         <TableArea list={filteredList} />
       </C.Body>
